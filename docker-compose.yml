@@ -9,6 +9,7 @@ services:
   # This task is only performed during the *initial* startup of the stack. On all
   # subsequent runs, the service simply returns immediately, without performing
   # any modification to existing users.
+  # 1
   setup:
     build:
       context: setup/
@@ -26,6 +27,7 @@ services:
     depends_on:
       - elasticsearch
 
+  # 2
   elasticsearch:
     build:
       context: elasticsearch/
@@ -49,6 +51,7 @@ services:
     networks:
       - elk
 
+  # 3
   logstash:
     build:
       context: logstash/
@@ -71,6 +74,7 @@ services:
     depends_on:
       - elasticsearch
 
+  # 4
   kibana:
     build:
       context: kibana/

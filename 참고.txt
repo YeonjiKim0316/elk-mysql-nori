@@ -1,4 +1,14 @@
-# id: elastic / pw: woorifisa1!
+
+- docker-compose로 하나의 EC2에 여러개의 컨테이너를 운영하는 방법  
+- 배포한ip:5601에 접속하여 확인
+- 1. 우리가 docker network 외에 열어줘야 할 포트 고민
+- 2. 인스턴스의 적정한 사양 고민
+- 3. 자신의 서비스에서 logstash를 활용하여 데이터 수집해보기
+- 4. 시간이 허락하면 + dataview에 등록하여 작은 대시보드 생성
+
+
+
+# id: elastic / pw: woorifisa2!
 
 # 실행
 docker-compose build && docker-compose up -d
@@ -25,9 +35,9 @@ PUT yeonji_data
 POST _reindex
 {
     "source": {
-        "index": "logstash-hyunji"
+        "index": "logstash-yeonji"
     },
     "dest": {
-        "index": "card_data"
+        "index": "yeonji_data"
     }
 }
